@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         bannerView.setAdUnitId(getResources().getString(R.string.mrecId));
         bannerView.setAdSize(MoPubView.MoPubAdSize.HEIGHT_250);
 
-        // optionally you can set additional parameters for Startapp banner
+        // optionally you can set additional parameters for Startapp mrec
         final Map<String, Object> extras = new StartappExtras.Builder()
                 .setAdTag("mrecTagFromAdRequest")
                 .enable3DBanner()
@@ -357,7 +357,7 @@ public class MainActivity extends AppCompatActivity {
      * each value from the mopub interface overrides corresponding value from the extras map
      */
     public void onClickLoadRewarded(@NonNull View view) {
-        // optionally you can set additional parameters for Startapp interstitial
+        // optionally you can set additional parameters for Startapp rewarded
         final StartappExtras.LocalExtras extras = new StartappExtras.Builder()
                 .setAdTag("rewardedTagFromAdRequest")
                 .muteVideo()
@@ -447,7 +447,7 @@ public class MainActivity extends AppCompatActivity {
         // clear previous ad
         viewBinding.nativeAdPlaceholder.removeAllViews();
 
-        // optionally you can set additional parameters for Startapp interstitial
+        // optionally you can set additional parameters for Startapp native
         final Map<String, Object> extras = new StartappExtras.Builder()
                 .setAdTag("nativeTagFromAdRequest")
                 .setMinCPM(0.01)
