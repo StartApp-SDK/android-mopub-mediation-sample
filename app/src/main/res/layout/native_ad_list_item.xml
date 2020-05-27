@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/native_outer_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E3F2FD"
+    android:textDirection="locale">
+
+    <ImageView
+        android:id="@+id/native_icon_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@null"
+        android:maxHeight="64dp"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/native_sponsored_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/native_cta"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/native_cta"
+        android:text="%Sponsored%" />
+
+    <TextView
+        android:id="@+id/native_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/native_cta"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/native_icon_image"
+        android:text="%Title%"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/native_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/native_main_image"
+        android:layout_alignParentStart="true"
+        android:text="%Description%"
+        android:textColor="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/native_main_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/native_icon_image"
+        android:layout_marginTop="3dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="native_main_image"
+        android:maxHeight="75dp"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <Button
+        android:id="@+id/native_cta"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/native_icon_image"
+        android:clickable="false"
+        android:focusable="true"
+        android:text="%Call 2 Action%"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/native_privacy_information_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="Privacy Information Icon image"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/native_rating_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@id/native_privacy_information_icon_image"
+        android:text="%Rating%" />
+
+</RelativeLayout>

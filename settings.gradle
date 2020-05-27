@@ -1,0 +1,4 @@
+include ':app'
+
+//include ':mopub-mediation'
+//project(':mopub-mediation').projectDir = new File('../android-mopub-mediation')

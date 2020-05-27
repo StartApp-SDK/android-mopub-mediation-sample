@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mopub-Startapp</string>
+    <!-- admobAppId is needed only for getting advertiser id -->
+    <string name="admobAppId">ca-app-pub-4237896427435354~2081366453</string>
+    <!-- test interstitial: 24534e1901884e398f1253216226017e -->
+    <string name="interstitialId">c62813c20c1849f3981123414f8cf8db</string>
+    <!-- test banner: b195f8dd8ded45fe847ad89ed1d016da -->
+    <string name="bannerId">8969036abee94bb19ed8a879d099d80d</string>
+    <!-- test mrec: 252412d5e9364a05ab77d9396346d73d -->
+    <string name="mrecId">4e6925857f18411cb97cb84552e49015</string>
+    <!-- test rewarded: 920b6145fb1546cf8b5cf2ac34638bb7 -->
+    <string name="rewardedId">ea80f2dfb5014fb193db392adcc39bfb</string>
+    <!-- test native: 11a17b188668469fb0412708c3d16813 -->
+    <string name="nativeId">95be06aebf9e44b89460b632763fc205</string>
+</resources>
