@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         final SdkConfiguration configuration = new SdkConfiguration.Builder(getString(R.string.interstitialId))
                 .withLogLevel(MoPubLog.LogLevel.DEBUG)
                 // You can initialize the startapp sdk here, but prefer to do that from the mopub network custom event interface
+                // Example: {startappAppId:'your_app_id_from_portal'}
                 //.withAdditionalNetwork(StartappConfig.class.getName()) // needs for MoPub-unsupported networks like StartApp
                 //.withMediatedNetworkConfiguration(StartappConfig.class.getName(), Collections.singletonMap("startappAppId", "205738045"))
                 .build();
@@ -436,7 +437,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * you can as well write to mopub network custom event interface optional parameter
      * which must be in json format, unused fields can be omitted:
-     * {startappAppId:'205738045', adTag:'nativeTagFromServer', minCPM:0.02, nativeImageSize:'SIZE150X150', nativeSecondaryImageSize:'SIZE340X340'}
+     * {startappAppId:'205738045', adTag:'nativeTagFromServer', minCPM:0.02, nativeImageSize:'SIZE340X340', nativeSecondaryImageSize:'SIZE72X72'}
      * each value from the mopub interface overrides corresponding value from the extras map
      */
     public void onClickLoadNative(@NonNull View view) {
@@ -451,8 +452,8 @@ public class MainActivity extends AppCompatActivity {
         final Map<String, Object> extras = new StartappExtras.Builder()
                 .setAdTag("nativeTagFromAdRequest")
                 .setMinCPM(0.01)
-                .setNativeImageSize(StartappExtras.Size.SIZE72X72)
-                .setNativeSecondaryImageSize(StartappExtras.Size.SIZE150X150)
+                .setNativeImageSize(StartappExtras.Size.SIZE150X150)
+                .setNativeSecondaryImageSize(StartappExtras.Size.SIZE100X100)
                 .toMap();
 
         moPubNative.setLocalExtras(extras);
@@ -491,7 +492,6 @@ public class MainActivity extends AppCompatActivity {
                 new ViewBinder.Builder(0)
                         .build());
 
-        viewBinding.nativeAdPlaceholder.removeAllViews();
         viewBinding.nativeAdPlaceholder.addView(adView);
 
         view.setEnabled(false);
