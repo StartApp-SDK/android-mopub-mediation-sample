@@ -38,8 +38,7 @@ import com.mopub.mobileads.MoPubInterstitial;
 import com.mopub.mobileads.MoPubRewardedVideoListener;
 import com.mopub.mobileads.MoPubRewardedVideos;
 import com.mopub.mobileads.MoPubView;
-import com.mopub.mobileads.StartappConfig;
-import com.mopub.mobileads.StartappExtras;
+import com.mopub.mobileads.StartappAdapter;
 import com.mopub.nativeads.AdapterHelper;
 import com.mopub.nativeads.MoPubNative;
 import com.mopub.nativeads.MoPubStaticNativeAdRenderer;
@@ -50,7 +49,6 @@ import com.mopub.nativeads.ViewBinder;
 import com.startapp.mopub.sample.databinding.ActivityMainBinding;
 import com.startapp.sdk.adsbase.StartAppSDK;
 
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Map;
 import java.util.Set;
@@ -170,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         bannerView.setAdSize(MoPubView.MoPubAdSize.HEIGHT_50);
 
         // optionally you can set additional parameters for Startapp banner
-        final Map<String, Object> extras = new StartappExtras.Builder()
+        final Map<String, Object> extras = new StartappAdapter.Extras.Builder()
                 .setAdTag("bannerTagFromAdRequest")
                 .enable3DBanner()
                 .setMinCPM(0.01)
@@ -178,13 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
         bannerView.setLocalExtras(extras);
 
-        // optionally adding location & keywords
-        final Location location = new Location("sample");
-        location.setLatitude(40.7);
-        location.setLongitude(-73.9);
-        location.setAccuracy(100);
-
-        bannerView.setLocation(location);
+        // optionally adding keywords
         bannerView.setKeywords("gender:m,age:32");
 
         bannerView.loadAd();
@@ -207,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
         bannerView.setAdSize(MoPubView.MoPubAdSize.HEIGHT_250);
 
         // optionally you can set additional parameters for Startapp mrec
-        final Map<String, Object> extras = new StartappExtras.Builder()
+        final Map<String, Object> extras = new StartappAdapter.Extras.Builder()
                 .setAdTag("mrecTagFromAdRequest")
                 .enable3DBanner()
                 .setMinCPM(0.01)
@@ -215,13 +207,7 @@ public class MainActivity extends AppCompatActivity {
 
         bannerView.setLocalExtras(extras);
 
-        // optionally adding location & keywords
-        final Location location = new Location("sample");
-        location.setLatitude(40.7);
-        location.setLongitude(-73.9);
-        location.setAccuracy(100);
-
-        bannerView.setLocation(location);
+        // optionally adding keywords
         bannerView.setKeywords("gender:m,age:32");
 
         bannerView.loadAd();
@@ -238,6 +224,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInterstitialLoaded(MoPubInterstitial interstitial) {
                 viewBinding.interstitialShowButton.setEnabled(true);
+
+                Toast.makeText(MainActivity.this, "onInterstitialLoaded", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -258,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInterstitialDismissed(MoPubInterstitial interstitial) {
                 viewBinding.interstitialShowButton.setEnabled(false);
+
                 Toast.makeText(MainActivity.this, "onInterstitialDismissed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -275,9 +264,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // optionally you can set additional parameters for Startapp interstitial
-        final Map<String, Object> extras = new StartappExtras.Builder()
+        final Map<String, Object> extras = new StartappAdapter.Extras.Builder()
                 .setAdTag("interstitialTagFromAdRequest")
-                .setInterstitialMode(StartappExtras.Mode.OFFERWALL)
+                .setInterstitialMode(StartappAdapter.Extras.Mode.OFFERWALL)
                 .muteVideo()
                 .setMinCPM(0.01)
                 .toMap();
@@ -359,7 +348,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onClickLoadRewarded(@NonNull View view) {
         // optionally you can set additional parameters for Startapp rewarded
-        final StartappExtras.LocalExtras extras = new StartappExtras.Builder()
+        final StartappAdapter.Extras.LocalExtras extras = new StartappAdapter.Extras.Builder()
                 .setAdTag("rewardedTagFromAdRequest")
                 .muteVideo()
                 .setMinCPM(0.01)
@@ -449,11 +438,11 @@ public class MainActivity extends AppCompatActivity {
         viewBinding.nativeAdPlaceholder.removeAllViews();
 
         // optionally you can set additional parameters for Startapp native
-        final Map<String, Object> extras = new StartappExtras.Builder()
+        final Map<String, Object> extras = new StartappAdapter.Extras.Builder()
                 .setAdTag("nativeTagFromAdRequest")
                 .setMinCPM(0.01)
-                .setNativeImageSize(StartappExtras.Size.SIZE150X150)
-                .setNativeSecondaryImageSize(StartappExtras.Size.SIZE100X100)
+                .setNativeImageSize(StartappAdapter.Extras.Size.SIZE150X150)
+                .setNativeSecondaryImageSize(StartappAdapter.Extras.Size.SIZE100X100)
                 .toMap();
 
         moPubNative.setLocalExtras(extras);

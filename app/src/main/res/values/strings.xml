@@ -3,6 +3,7 @@
     <!-- admobAppId is needed only for getting advertiser id -->
     <string name="admobAppId">ca-app-pub-4237896427435354~2081366453</string>
     <!-- test interstitial: 24534e1901884e398f1253216226017e -->
+    <!-- test line item interstitial: fceab6132f33414fb5f1bb3dbeba893d -->
     <string name="interstitialId">c62813c20c1849f3981123414f8cf8db</string>
     <!-- test banner: b195f8dd8ded45fe847ad89ed1d016da -->
     <string name="bannerId">8969036abee94bb19ed8a879d099d80d</string>

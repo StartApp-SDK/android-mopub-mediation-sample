@@ -1,4 +1,6 @@
 include ':app'
 
-//include ':mopub-mediation'
-//project(':mopub-mediation').projectDir = new File('../android-mopub-mediation')
+if (Boolean.parseBoolean("$ADAPTER_FROM_SOURCES")) {
+    include ':mopub-mediation'
+    project(':mopub-mediation').projectDir = new File('../android-mopub-mediation')
+}
