@@ -23,9 +23,9 @@
         android:id="@+id/native_sponsored_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/native_cta"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
-        android:layout_toEndOf="@id/native_cta"
+        android:layout_toEndOf="@id/native_icon_image"
         android:text="%Sponsored%" />
 
     <TextView
@@ -33,8 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/native_cta"
-        android:layout_marginStart="8dp"
-        android:layout_toEndOf="@id/native_icon_image"
+        android:layout_alignStart="@id/native_cta"
         android:text="%Title%"
         android:textColor="@android:color/darker_gray"
         android:textStyle="bold" />
@@ -64,8 +63,9 @@
         android:id="@+id/native_cta"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@id/native_icon_image"
+        android:layout_alignTop="@id/native_main_image"
+        android:layout_toEndOf="@id/native_main_image"
+        android:layout_marginStart="16dp"
         android:clickable="false"
         android:focusable="true"
         android:text="%Call 2 Action%"

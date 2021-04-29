@@ -1,16 +1,13 @@
 <resources>
     <string name="app_name">Mopub-Startapp</string>
-    <!-- admobAppId is needed only for getting advertiser id -->
-    <string name="admobAppId">ca-app-pub-4237896427435354~2081366453</string>
     <!-- test interstitial: 24534e1901884e398f1253216226017e -->
-    <!-- test line item interstitial: fceab6132f33414fb5f1bb3dbeba893d -->
-    <string name="interstitialId">c62813c20c1849f3981123414f8cf8db</string>
+    <string name="interstitialId">e06d30c6f063489eb62b95955a98c670</string>
     <!-- test banner: b195f8dd8ded45fe847ad89ed1d016da -->
-    <string name="bannerId">8969036abee94bb19ed8a879d099d80d</string>
+    <string name="bannerId">79731a632df942fa91cd8eedf9efc39e</string>
     <!-- test mrec: 252412d5e9364a05ab77d9396346d73d -->
-    <string name="mrecId">4e6925857f18411cb97cb84552e49015</string>
+    <string name="mrecId">b3d2ab12cf9445e7b2625a6f2f38f918</string>
     <!-- test rewarded: 920b6145fb1546cf8b5cf2ac34638bb7 -->
-    <string name="rewardedId">ea80f2dfb5014fb193db392adcc39bfb</string>
+    <string name="rewardedId">368ca03dbb6144b0a90305c2f8e2509d</string>
     <!-- test native: 11a17b188668469fb0412708c3d16813 -->
-    <string name="nativeId">95be06aebf9e44b89460b632763fc205</string>
+    <string name="nativeId">f77d2630cbb840088aa1fa28f993b6e9</string>
 </resources>
