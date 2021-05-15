@@ -16,17 +16,17 @@
 
 package com.startapp.mopub.sample;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.view.ViewCompat;
-
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.core.view.ViewCompat;
 
 import com.mopub.common.MoPub;
 import com.mopub.common.MoPubReward;
@@ -35,8 +35,8 @@ import com.mopub.common.SdkInitializationListener;
 import com.mopub.common.logging.MoPubLog;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubInterstitial;
-import com.mopub.mobileads.MoPubRewardedVideoListener;
-import com.mopub.mobileads.MoPubRewardedVideos;
+import com.mopub.mobileads.MoPubRewardedAdListener;
+import com.mopub.mobileads.MoPubRewardedAds;
 import com.mopub.mobileads.MoPubView;
 import com.mopub.mobileads.StartappAdapter;
 import com.mopub.nativeads.AdapterHelper;
@@ -289,51 +289,51 @@ public class MainActivity extends AppCompatActivity {
 
     //region Rewarded Video
     private void initRewarded() {
-        MoPubRewardedVideos.setRewardedVideoListener(new MoPubRewardedVideoListener() {
+        MoPubRewardedAds.setRewardedAdListener(new MoPubRewardedAdListener() {
             @Override
-            public void onRewardedVideoLoadSuccess(@NonNull String adUnitId) {
+            public void onRewardedAdLoadSuccess(@NonNull String adUnitId) {
                 viewBinding.showRewardedButton.setEnabled(true);
 
-                Toast.makeText(MainActivity.this, "onRewardedVideoLoadSuccess", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "onRewardedAdLoadSuccess", Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onRewardedVideoLoadFailure(@NonNull String adUnitId, @NonNull MoPubErrorCode errorCode) {
+            public void onRewardedAdLoadFailure(@NonNull String adUnitId, @NonNull MoPubErrorCode errorCode) {
                 viewBinding.showRewardedButton.setEnabled(false);
 
                 Toast.makeText(MainActivity.this,
-                        "onRewardedVideoLoadFailure, errorCode=" + errorCode,
+                        "onRewardedAdLoadFailure, errorCode=" + errorCode,
                         Toast.LENGTH_SHORT)
                         .show();
             }
 
             @Override
-            public void onRewardedVideoStarted(@NonNull String adUnitId) {
-                Toast.makeText(MainActivity.this, "onRewardedVideoStarted", Toast.LENGTH_SHORT).show();
+            public void onRewardedAdStarted(@NonNull String adUnitId) {
+                Toast.makeText(MainActivity.this, "onRewardedAdStarted", Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onRewardedVideoPlaybackError(@NonNull String adUnitId, @NonNull MoPubErrorCode errorCode) {
+            public void onRewardedAdShowError(@NonNull String adUnitId, @NonNull MoPubErrorCode errorCode) {
                 Toast.makeText(MainActivity.this,
-                        "onRewardedVideoPlaybackError, errorCode=" + errorCode,
+                        "onRewardedAdShowError, errorCode=" + errorCode,
                         Toast.LENGTH_SHORT)
                         .show();
             }
 
             @Override
-            public void onRewardedVideoClicked(@NonNull String adUnitId) {
-                Toast.makeText(MainActivity.this, "onRewardedVideoClicked", Toast.LENGTH_SHORT).show();
+            public void onRewardedAdClicked(@NonNull String adUnitId) {
+                Toast.makeText(MainActivity.this, "onRewardedAdClicked", Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onRewardedVideoClosed(@NonNull String adUnitId) {
-                Toast.makeText(MainActivity.this, "onRewardedVideoClosed", Toast.LENGTH_SHORT).show();
+            public void onRewardedAdClosed(@NonNull String adUnitId) {
+                Toast.makeText(MainActivity.this, "onRewardedAdClosed", Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onRewardedVideoCompleted(@NonNull Set<String> adUnitIds, @NonNull MoPubReward reward) {
+            public void onRewardedAdCompleted(@NonNull Set<String> adUnitIds, @NonNull MoPubReward reward) {
                 Toast.makeText(MainActivity.this,
-                        "onRewardedVideoCompleted, " + reward.getLabel() + ", " + reward.getAmount(),
+                        "onRewardedAdCompleted, " + reward.getLabel() + ", " + reward.getAmount(),
                         Toast.LENGTH_SHORT)
                         .show();
             }
@@ -354,14 +354,14 @@ public class MainActivity extends AppCompatActivity {
                 .setMinCPM(0.01)
                 .toMap();
 
-        MoPubRewardedVideos.loadRewardedVideo(getResources().getString(R.string.rewardedId), extras);
+        MoPubRewardedAds.loadRewardedAd(getResources().getString(R.string.rewardedId), extras);
     }
 
     public void onClickShowRewarded(@NonNull View view) {
         viewBinding.showRewardedButton.setEnabled(false);
 
-        if (MoPubRewardedVideos.hasRewardedVideo(getResources().getString(R.string.rewardedId))) {
-            MoPubRewardedVideos.showRewardedVideo(getResources().getString(R.string.rewardedId));
+        if (MoPubRewardedAds.hasRewardedAd(getResources().getString(R.string.rewardedId))) {
+            MoPubRewardedAds.showRewardedAd(getResources().getString(R.string.rewardedId));
         } else {
             Toast.makeText(MainActivity.this, "no rewarded video", Toast.LENGTH_SHORT).show();
         }
